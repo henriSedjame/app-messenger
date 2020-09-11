@@ -1,0 +1,28 @@
+<!DOCTYPE HTML >
+<htmls>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" >
+    </head>
+    <body>
+        <form id="message-form" class="pure-form">
+            <fieldset>
+                <legend>Message form</legend>
+                <select id="user-selected">
+                    {{#users}}
+                        <option value="{{login}}"> {{firstname}} {{lastname}}</option>
+                    {{/users}}
+                </select>
+
+                <input type="text" id="message-input" required placeholder="Message">
+
+                <input type="button" value="Send" id="submit-button">
+            </fieldset>
+        </form>
+        <p>
+            <ul id="messages"></ul>
+        </p>
+
+    </body>
+</htmls>

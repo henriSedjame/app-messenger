@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*
 import java.lang.Exception
 
 @RestController
+@RequestMapping("/users")
 class UserController(private val userRepository: UserRepository) {
 
     @GetMapping("/")

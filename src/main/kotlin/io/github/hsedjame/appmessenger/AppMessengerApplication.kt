@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.data.r2dbc.core.DatabaseClient
-import org.springframework.data.r2dbc.core.awaitFirstOrNull
 import org.springframework.data.r2dbc.core.awaitOneOrNull
 import org.springframework.transaction.reactive.TransactionalOperator
 import org.springframework.transaction.reactive.executeAndAwait
@@ -26,6 +25,7 @@ class AppMessengerApplication {
 
                 client.execute("CREATE TABLE IF NOT EXISTS users( id BIGINT PRIMARY KEY GENERATED ALWAYS AS  IDENTITY NOT NULL , login VARCHAR , firstname VARCHAR , lastname VARCHAR)")
                         .fetch().awaitOneOrNull()
+
                 userRepository.deleteAll()
                 userRepository.save(User(id = null, login = "clenain", firstname = "chloe", lastname = "LE NAIN"))
                 userRepository.save(User(id = null, login = "llenain", firstname = "lea", lastname = "LE NAIN"))

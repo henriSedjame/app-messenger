@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 interface UserRepository: CoroutineCrudRepository<User, Long> {
 
     /* Find one user by its login */
-    @Query("SELECT * FROM users WHERE login = ?1")
+    @Query("SELECT * FROM users WHERE login = :login")
     suspend fun findByLogin(login: String) : User?
 
     @Query("DELETE FROM users WHERE login = :login")
